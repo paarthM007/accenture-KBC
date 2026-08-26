@@ -126,8 +126,8 @@ class ActionItem(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
     title: str
     description: str
-    priority: Literal["HIGH", "MEDIUM", "LOW"]
-    rationale: Optional[str] = None
+    impact: Literal["HIGH", "MEDIUM", "LOW"]
+    effort: Literal["HIGH", "MEDIUM", "LOW"]
 
 class Narrative(BaseModel):
     model_config = ConfigDict(populate_by_name=True)

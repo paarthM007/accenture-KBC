@@ -1,0 +1,122 @@
+[
+  {
+    "case_id": "saas_case_1",
+    "sector_id": "TECH_SAAS",
+    "title": "SaaS Expansion and NRR Optimization",
+    "context_tags": ["nrr_drop", "expansion_revenue", "account_health", "topline"],
+    "problem_description": "A SaaS enterprise experienced a notable drop in Net Revenue Retention (NRR) due to weak expansion sales and customer account downgrades.",
+    "root_causes": [
+      "Lack of structured upselling campaigns for existing accounts",
+      "High customer success representative turnover causing account neglect"
+    ],
+    "recommended_actions": [
+      "Implement quarterly business reviews (QBRs) for top-tier accounts",
+      "Introduce expansion commissions for customer success managers"
+    ]
+  },
+  {
+    "case_id": "saas_case_2",
+    "sector_id": "TECH_SAAS",
+    "title": "Reducing Customer Churn Leakage",
+    "context_tags": ["churn_related", "retention_leak", "customer_attrition", "ltv_decay"],
+    "problem_description": "A growth-stage SaaS company noticed high churn and customer attrition during onboarding, leading to customer lifetime value decay.",
+    "root_causes": [
+      "Significant product complexity and lack of self-service onboarding guides",
+      "Slow customer support response times during the critical first week"
+    ],
+    "recommended_actions": [
+      "Redesign self-service onboarding flow with interactive walk-throughs",
+      "Establish a dedicated week-one customer support tier"
+    ]
+  },
+  {
+    "case_id": "saas_case_3",
+    "sector_id": "TECH_SAAS",
+    "title": "CAC Inflation and Sales Burn Management",
+    "context_tags": ["cac_inflation", "acquisition_efficiency", "sales_burn", "capital_efficiency"],
+    "problem_description": "Rapidly rising customer acquisition costs (CAC) combined with high sales spend led to capital inefficiency.",
+    "root_causes": [
+      "Over-reliance on saturated paid advertising acquisition channels",
+      "Ineffective lead qualification process leading to wasted sales effort"
+    ],
+    "recommended_actions": [
+      "Shift marketing budget toward organic SEO and technical content marketing",
+      "Implement automated lead scoring criteria in the CRM system"
+    ]
+  },
+  {
+    "case_id": "saas_case_4",
+    "sector_id": "TECH_SAAS",
+    "title": "COGS Inflation and Margin Compression",
+    "context_tags": ["margin_compression", "cogs_inflation", "gross_profit", "runway_crisis"],
+    "problem_description": "Rising hosting fees and cloud infrastructure costs compressed the gross margins and created a runway crisis.",
+    "root_causes": [
+      "Unoptimized cloud resource provisioning and idle database instances",
+      "Inefficient backend database queries causing processing overheads"
+    ],
+    "recommended_actions": [
+      "Set up automatic cloud resource scheduling and auto-scaling rules",
+      "Audit database indexing and optimize high-latency query caching"
+    ]
+  },
+  {
+    "case_id": "retail_case_1",
+    "sector_id": "RETAIL",
+    "title": "Inventory Turn and Dead Stock Reduction",
+    "context_tags": ["dead_stock", "inventory_velocity", "working_capital", "inventory_clearance"],
+    "problem_description": "Excess inventory and dead stock locked up working capital, causing warehouse and storage cost inflation.",
+    "root_causes": [
+      "Inaccurate demand forecasting models for seasonal goods",
+      "Slower-than-expected clearance sales of off-season products"
+    ],
+    "recommended_actions": [
+      "Deploy demand forecasting software utilizing historical sales patterns",
+      "Execute targeted clearance markdown campaigns for older inventory"
+    ]
+  },
+  {
+    "case_id": "retail_case_2",
+    "sector_id": "RETAIL",
+    "title": "Improving Sell-Through and Stock Efficiency",
+    "context_tags": ["sell_through", "stock_efficiency", "inventory_clearance", "retail_velocity"],
+    "problem_description": "Low sell-through rates across core apparel categories led to stock inefficiencies and high holding costs.",
+    "root_causes": [
+      "Misaligned initial pricing compared to competitor offerings",
+      "Suboptimal visual product merchandising in brick-and-mortar stores"
+    ],
+    "recommended_actions": [
+      "Optimize price elasticity strategies and implement dynamic markdown pricing",
+      "Revamp product placement and floor visual merchandising in high-traffic zones"
+    ]
+  },
+  {
+    "case_id": "retail_case_3",
+    "sector_id": "RETAIL",
+    "title": "AOV Expansion and Basket Size Growth",
+    "context_tags": ["basket_size", "pricing_elasticity", "aov_drop", "store_productivity"],
+    "problem_description": "Declining average order value (AOV) reduced overall store profitability and yield.",
+    "root_causes": [
+      "Lack of point-of-sale cross-selling training for checkout agents",
+      "Unoptimized product grouping and bundling choices"
+    ],
+    "recommended_actions": [
+      "Train checkout associates on cross-selling high-margin accessories",
+      "Introduce multi-item product bundles (e.g. buy-one-get-one deals)"
+    ]
+  },
+  {
+    "case_id": "retail_case_4",
+    "sector_id": "RETAIL",
+    "title": "Product Returns and Refund Rate Mitigation",
+    "context_tags": ["product_returns", "refund_rate", "return_leakage", "retail_margin"],
+    "problem_description": "High return rates and refund leakage compressed retail margins and disrupted reverse logistics.",
+    "root_causes": [
+      "Inconsistent and inaccurate size guides on the e-commerce website",
+      "Product description quality gaps for third-party manufactured products"
+    ],
+    "recommended_actions": [
+      "Incorporate interactive 3D sizing calculators on product pages",
+      "Establish stricter quality checkpoints for third-party suppliers"
+    ]
+  }
+]

@@ -1,14 +1,25 @@
 import unittest
 import time
+import sys
 from datetime import datetime
+from unittest.mock import MagicMock, patch
+
+# Mock google.generativeai in sys.modules to prevent import failures in environments
+# where google-generativeai is not yet installed.
+mock_genai = MagicMock()
+sys.modules['google'] = MagicMock()
+sys.modules['google.generativeai'] = mock_genai
+
 from c3_engine.schemas import AnomalyReport, EnrichedReport, Anomaly, DeviationDetail, TrendDetail
 from c3_engine.orchestrator import enrich_report
 from c3_engine.clustering import build_anomaly_clusters
 from c3_engine.prescriptions import find_submitted_metric_value
 
-def make_test_anomaly(anomaly_id: str, metric_id: str, severity_label: str = "WARNING", correlated=None) -> dict:
+def make_test_anomaly(anomaly_id: str, metric_id: str, severity_label: str = "WARNING", correlated=None, tags=None) -> dict:
     if correlated is None:
         correlated = []
+    if tags is None:
+        tags = ["test_tag"]
     return {
         "anomaly_id": anomaly_id,
         "metric_id": metric_id,
@@ -33,7 +44,7 @@ def make_test_anomaly(anomaly_id: str, metric_id: str, severity_label: str = "WA
         },
         "correlated_anomalies": correlated,
         "noise_confidence": 0.85,
-        "context_tags": ["test_tag"],
+        "context_tags": tags,
         "natural_language_summary": "Test summary"
     }
 
@@ -72,7 +83,35 @@ def make_test_report_dict(anomalies=None, highlights=None, refusal=None, sector_
         }
     }
 
+MOCK_NARRATIVE_JSON = '''{
+  "situation_summary": "The company is experiencing revenue drag due to high churn.",
+  "likely_root_causes": ["Complex onboarding flow"],
+  "prioritized_actions": [
+    {
+      "title": "Optimize Onboarding",
+      "description": "Streamline initial user setup.",
+      "impact": "HIGH",
+      "effort": "MEDIUM"
+    }
+  ],
+  "positives": ["Net revenue retention remains stable."]
+}'''
+
 class TestC3Engine(unittest.TestCase):
+
+    def setUp(self):
+        # Reset the mock before each test
+        mock_genai.reset_mock()
+        
+        # Configure default mock response to avoid Pydantic ValidationError
+        mock_response = MagicMock()
+        mock_response.text = MOCK_NARRATIVE_JSON
+        mock_response.usage_metadata = MagicMock()
+        mock_response.usage_metadata.prompt_token_count = 10
+        mock_response.usage_metadata.candidates_token_count = 5
+        mock_response.usage_metadata.total_token_count = 15
+        
+        mock_genai.GenerativeModel.return_value.generate_content.return_value = mock_response
 
     def test_refusal_path(self):
         """
@@ -94,7 +133,7 @@ class TestC3Engine(unittest.TestCase):
         enriched = enrich_report(report)
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
         
-        # Verify execution time is extremely fast (< 1ms is expected, but let's assert < 10ms to be safe for CI spikes, usually < 0.2ms)
+        # Verify execution time is extremely fast (< 5ms is the acceptance criteria)
         self.assertLess(elapsed_ms, 5.0, f"Refusal path took too long: {elapsed_ms}ms")
         
         # Verify refusal bypass details
@@ -194,6 +233,92 @@ class TestC3Engine(unittest.TestCase):
         self.assertEqual(adj.delta, 4.5)  # 15.0 - 10.5
         self.assertEqual(adj.priority, "HIGH")  # CRITICAL -> HIGH
         self.assertIn("Optimize pricing strategy", adj.rationale)
+
+    # --- Phase 2 Tests ---
+
+    def test_case_matcher_exact_tag_overlap(self):
+        """
+        test_case_matcher_exact_tag_overlap():
+        Verify that an anomaly cluster with tags ["churn_related", "retention_leak"] 
+        correctly matches a SaaS onboarding case study and attaches cluster_index = 0.
+        """
+        # "saas_case_2" has context_tags: ["churn_related", "retention_leak", "customer_attrition", "ltv_decay"]
+        # Cluster tags: ["churn_related", "retention_leak"]
+        # Jaccard Sim = 2 / 4 = 0.50 (exact threshold match)
+        anomalies_dict = [
+            make_test_anomaly("A", "churn_rate", tags=["churn_related", "retention_leak"])
+        ]
+        report_dict = make_test_report_dict(anomalies=anomalies_dict, sector_id="TECH_SAAS")
+        
+        enriched = enrich_report(report_dict)
+        
+        # Verify match occurred and fields align
+        self.assertEqual(len(enriched.matched_cases), 1)
+        match = enriched.matched_cases[0]
+        self.assertEqual(match.case_id, "saas_case_2")
+        self.assertEqual(match.cluster_index, 0)
+        self.assertEqual(match.similarity_score, 0.50)
+
+    def test_case_matcher_threshold_fallback(self):
+        """
+        test_case_matcher_threshold_fallback():
+        Pass dummy tags that have zero overlap with the DB and assert matched_cases == []
+        and no exception is raised.
+        """
+        anomalies_dict = [
+            make_test_anomaly("A", "churn_rate", tags=["completely_unrelated_tag"])
+        ]
+        report_dict = make_test_report_dict(anomalies=anomalies_dict, sector_id="TECH_SAAS")
+        
+        enriched = enrich_report(report_dict)
+        
+        # Verify no matches were returned
+        self.assertEqual(enriched.matched_cases, [])
+
+    @patch.dict("os.environ", {"GEMINI_API_KEY": "test_fake_api_key"})
+    def test_narrative_degraded_mode_on_llm_failure(self):
+        """
+        test_narrative_degraded_mode_on_llm_failure():
+        Mock the LLM call to raise TimeoutError or Exception. Call enrich_report() and assert:
+        - result.narrative is None
+        - result.metadata.degraded is True
+        - result.prescriptions and result.matched_cases remain fully populated.
+        """
+        # Mock generate_content call to throw an Exception
+        mock_genai.GenerativeModel.return_value.generate_content.side_effect = Exception("LLM Timeout")
+        
+        # Prepare valid report (should yield prescriptions and matched cases)
+        anomalies_dict = [
+            make_test_anomaly("A", "churn_rate", tags=["churn_related", "retention_leak"])
+        ]
+        report_dict = make_test_report_dict(anomalies=anomalies_dict, sector_id="TECH_SAAS")
+        
+        enriched = enrich_report(report_dict)
+        
+        # Assertions
+        self.assertIsNone(enriched.narrative)
+        self.assertTrue(enriched.metadata.degraded)
+        self.assertEqual(len(enriched.prescriptions), 1)
+        self.assertEqual(len(enriched.matched_cases), 1)
+
+    def test_untouched_anomaly_report_pass_through(self):
+        """
+        test_untouched_anomaly_report_pass_through():
+        Assert that every field in result.anomaly_report matches the input anomaly_report verbatim
+        (e.g., overall_health_score, severity_score, z_score, natural_language_summary are unmodified).
+        """
+        anomalies_dict = [
+            make_test_anomaly("A", "churn_rate")
+        ]
+        report_dict = make_test_report_dict(anomalies=anomalies_dict, sector_id="TECH_SAAS")
+        report = AnomalyReport.model_validate(report_dict)
+        
+        enriched = enrich_report(report)
+        
+        # Compare raw serializations to check for verbatim equivalence
+        input_dump = report.model_dump()
+        output_dump = enriched.anomaly_report.model_dump()
+        self.assertEqual(input_dump, output_dump)
 
 if __name__ == "__main__":
     unittest.main()
