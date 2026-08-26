@@ -4,11 +4,12 @@ import sys
 from datetime import datetime
 from unittest.mock import MagicMock, patch
 
-# Mock google.generativeai in sys.modules to prevent import failures in environments
-# where google-generativeai is not yet installed.
+# Mock google.genai in sys.modules to prevent import failures in environments
+# where google-genai is not yet installed.
+mock_google = MagicMock()
 mock_genai = MagicMock()
-sys.modules['google'] = MagicMock()
-sys.modules['google.generativeai'] = mock_genai
+sys.modules['google'] = mock_google
+sys.modules['google.genai'] = mock_genai
 
 from c3_engine.schemas import AnomalyReport, EnrichedReport, Anomaly, DeviationDetail, TrendDetail
 from c3_engine.orchestrator import enrich_report
@@ -111,7 +112,7 @@ class TestC3Engine(unittest.TestCase):
         mock_response.usage_metadata.candidates_token_count = 5
         mock_response.usage_metadata.total_token_count = 15
         
-        mock_genai.GenerativeModel.return_value.generate_content.return_value = mock_response
+        mock_genai.Client.return_value.models.generate_content.return_value = mock_response
 
     def test_refusal_path(self):
         """
@@ -285,7 +286,7 @@ class TestC3Engine(unittest.TestCase):
         - result.prescriptions and result.matched_cases remain fully populated.
         """
         # Mock generate_content call to throw an Exception
-        mock_genai.GenerativeModel.return_value.generate_content.side_effect = Exception("LLM Timeout")
+        mock_genai.Client.return_value.models.generate_content.side_effect = Exception("LLM Timeout")
         
         # Prepare valid report (should yield prescriptions and matched cases)
         anomalies_dict = [

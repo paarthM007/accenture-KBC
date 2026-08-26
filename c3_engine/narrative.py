@@ -24,13 +24,13 @@ def generate_narrative(
         
         load_dotenv()
         
-        import google.generativeai as genai
+        from google import genai
         
         api_key = os.environ.get("GEMINI_API_KEY")
         if not api_key:
             raise ValueError("GEMINI_API_KEY environment variable is not set")
             
-        genai.configure(api_key=api_key)
+        client = genai.Client(api_key=api_key)
         
         # Build prompt context
         profile = anomaly_report.company_profile_summary
@@ -117,16 +117,19 @@ Please analyze the above context and output a JSON object containing:
 Output MUST conform strictly to the required schema. No pre-text or post-text outside the JSON object.
 """
 
-        model = genai.GenerativeModel("gemini-3.1-flash-lite")
-        response = model.generate_content(
-            prompt,
-            generation_config=genai.GenerationConfig(
-                response_mime_type="application/json",
-                response_schema=Narrative
-            )
+        response = client.models.generate_content(
+            model="gemini-3.1-flash-lite",
+            contents=prompt,
+            config={
+                "response_mime_type": "application/json",
+                "response_schema": Narrative,
+            }
         )
         
-        narrative_obj = Narrative.model_validate_json(response.text)
+        if hasattr(response, "parsed") and response.parsed is not None:
+            narrative_obj = response.parsed
+        else:
+            narrative_obj = Narrative.model_validate_json(response.text)
         
         token_metadata = {}
         if hasattr(response, "usage_metadata") and response.usage_metadata is not None:

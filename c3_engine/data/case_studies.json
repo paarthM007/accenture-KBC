@@ -60,6 +60,66 @@
     ]
   },
   {
+    "case_id": "saas_case_5",
+    "sector_id": "TECH_SAAS",
+    "title": "Mitigating SaaS Growth Velocity Stagnation",
+    "context_tags": ["growth_decline", "saas_velocity", "topline", "monetization"],
+    "problem_description": "A mature SaaS platform suffered a sharp slowdown in monthly recurring revenue growth due to pricing model stagnation.",
+    "root_causes": [
+      "Legacy flat-rate pricing failing to capture feature expansion value",
+      "Sales rep friction due to complex enterprise contract customization"
+    ],
+    "recommended_actions": [
+      "Transition to a value-based usage tier pricing structure",
+      "Standardize contract terms with fixed enterprise feature bundles"
+    ]
+  },
+  {
+    "case_id": "saas_case_6",
+    "sector_id": "TECH_SAAS",
+    "title": "Reversing LTV Decay in Enterprise Accounts",
+    "context_tags": ["ltv_decay", "customer_worth", "monetization", "account_health"],
+    "problem_description": "Average customer lifetime value dropped as account contract lengths shortened and renewal discounts escalated.",
+    "root_causes": [
+      "Aggressive initial discounting without long-term commit incentives",
+      "Lack of executive sponsor relationships within key client accounts"
+    ],
+    "recommended_actions": [
+      "Cap maximum annual renewal discount percentages",
+      "Establish executive sponsor mapping for top 20% high-value enterprise clients"
+    ]
+  },
+  {
+    "case_id": "saas_case_7",
+    "sector_id": "TECH_SAAS",
+    "title": "Cash Burn Crisis and Runway Extension",
+    "context_tags": ["runway_crisis", "burn_spike", "capital_efficiency", "sales_burn"],
+    "problem_description": "A series-A startup experienced a burn spike that reduced operating cash runway below six months.",
+    "root_causes": [
+      "Premature headcount expansion in outbound sales before achieving product-market fit",
+      "Unrestricted discretionary SaaS software spend across internal teams"
+    ],
+    "recommended_actions": [
+      "Consolidate redundant internal software tooling and implement spending approvals",
+      "Reallocate low-performing outbound sales headcount to inbound customer expansion"
+    ]
+  },
+  {
+    "case_id": "saas_case_8",
+    "sector_id": "TECH_SAAS",
+    "title": "SaaS Acquisition Efficiency Restoration",
+    "context_tags": ["acquisition_efficiency", "cac_inflation", "saas_velocity", "growth_decline"],
+    "problem_description": "Customer conversion rates declined while cost per lead surged, resulting in low acquisition efficiency.",
+    "root_causes": [
+      "Ad creative fatigue and misaligned target audience segments on paid channels",
+      "High drop-off rates on the free-trial registration landing page"
+    ],
+    "recommended_actions": [
+      "Refresh ad creative variants and re-target high-intent buyer personas",
+      "Remove credit card requirements from the initial free-trial sign-up page"
+    ]
+  },
+  {
     "case_id": "retail_case_1",
     "sector_id": "RETAIL",
     "title": "Inventory Turn and Dead Stock Reduction",
@@ -117,6 +177,66 @@
     "recommended_actions": [
       "Incorporate interactive 3D sizing calculators on product pages",
       "Establish stricter quality checkpoints for third-party suppliers"
+    ]
+  },
+  {
+    "case_id": "retail_case_5",
+    "sector_id": "RETAIL",
+    "title": "Margin Compression and Pricing Pressure Relief",
+    "context_tags": ["retail_margin", "pricing_pressure", "margin_erosion", "cogs_inflation"],
+    "problem_description": "Supplier cost inflation and intense local retail competition caused significant margin erosion.",
+    "root_causes": [
+      "Rising raw material and freight freight surcharges passed down by vendors",
+      "Reactive price-matching against aggressive online discount retailers"
+    ],
+    "recommended_actions": [
+      "Renegotiate wholesale vendor terms with bulk volume rebates",
+      "Shift product mix emphasis toward higher-margin private label brands"
+    ]
+  },
+  {
+    "case_id": "retail_case_6",
+    "sector_id": "RETAIL",
+    "title": "Store Yield and Footfall Efficiency Optimization",
+    "context_tags": ["store_productivity", "footfall_efficiency", "retail_yield", "comp_sales"],
+    "problem_description": "Physical retail locations suffered low sales yield per square foot despite consistent foot traffic.",
+    "root_causes": [
+      "Poor store layout bottlenecking traffic away from premium product shelves",
+      "Understaffing during peak shopping hours causing long checkout queues"
+    ],
+    "recommended_actions": [
+      "Redesign store layout into a guided loop to maximize merchandise exposure",
+      "Shift employee shift scheduling to align with hourly foot-traffic metrics"
+    ]
+  },
+  {
+    "case_id": "retail_case_7",
+    "sector_id": "RETAIL",
+    "title": "Comp-Sales Acceleration and Velocity Recovery",
+    "context_tags": ["comp_sales", "store_growth", "retail_velocity", "same_store_sales_growth"],
+    "problem_description": "Same-store sales growth stagnated year-over-year across regional retail branches.",
+    "root_causes": [
+      "Outdated loyalty program failing to drive repeat store visits",
+      "Localized stockouts of fast-moving inventory items during weekends"
+    ],
+    "recommended_actions": [
+      "Relaunch points-based loyalty program with instant store rewards",
+      "Implement weekend automated stock replenishment transfers from central hubs"
+    ]
+  },
+  {
+    "case_id": "retail_case_8",
+    "sector_id": "RETAIL",
+    "title": "Ad Spend Efficiency and Acquisition Turnaround",
+    "context_tags": ["ad_spend_efficiency", "customer_acquisition", "cac_inflation", "basket_size"],
+    "problem_description": "Retail customer acquisition costs escalated due to inefficient digital advertising spend.",
+    "root_causes": [
+      "Broad-match ad campaigns targeting low-intent shopper keywords",
+      "Lack of post-purchase retargeting for first-time shoppers"
+    ],
+    "recommended_actions": [
+      "Refine pay-per-click ad groups to high-intent product keywords",
+      "Deploy automated post-purchase email flows offering complementary accessory discounts"
     ]
   }
 ]
