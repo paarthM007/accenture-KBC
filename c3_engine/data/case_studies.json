@@ -3,7 +3,7 @@
     "case_id": "saas_case_1",
     "sector_id": "TECH_SAAS",
     "title": "SaaS Expansion and NRR Optimization",
-    "context_tags": ["nrr_drop", "expansion_revenue", "account_health", "topline"],
+    "context_tags": ["nrr_drop", "expansion_revenue", "account_health"],
     "problem_description": "A SaaS enterprise experienced a notable drop in Net Revenue Retention (NRR) due to weak expansion sales and customer account downgrades.",
     "root_causes": [
       "Lack of structured upselling campaigns for existing accounts",
@@ -18,7 +18,7 @@
     "case_id": "saas_case_2",
     "sector_id": "TECH_SAAS",
     "title": "Reducing Customer Churn Leakage",
-    "context_tags": ["churn_related", "retention_leak", "customer_attrition", "ltv_decay"],
+    "context_tags": ["churn_related", "retention_leak", "customer_attrition"],
     "problem_description": "A growth-stage SaaS company noticed high churn and customer attrition during onboarding, leading to customer lifetime value decay.",
     "root_causes": [
       "Significant product complexity and lack of self-service onboarding guides",
@@ -33,7 +33,7 @@
     "case_id": "saas_case_3",
     "sector_id": "TECH_SAAS",
     "title": "CAC Inflation and Sales Burn Management",
-    "context_tags": ["cac_inflation", "acquisition_efficiency", "sales_burn", "capital_efficiency"],
+    "context_tags": ["cac_inflation", "acquisition_efficiency", "sales_burn"],
     "problem_description": "Rapidly rising customer acquisition costs (CAC) combined with high sales spend led to capital inefficiency.",
     "root_causes": [
       "Over-reliance on saturated paid advertising acquisition channels",
@@ -48,7 +48,7 @@
     "case_id": "saas_case_4",
     "sector_id": "TECH_SAAS",
     "title": "COGS Inflation and Margin Compression",
-    "context_tags": ["margin_compression", "cogs_inflation", "gross_profit", "runway_crisis"],
+    "context_tags": ["margin_compression", "cogs_inflation", "gross_profit"],
     "problem_description": "Rising hosting fees and cloud infrastructure costs compressed the gross margins and created a runway crisis.",
     "root_causes": [
       "Unoptimized cloud resource provisioning and idle database instances",
@@ -63,7 +63,7 @@
     "case_id": "saas_case_5",
     "sector_id": "TECH_SAAS",
     "title": "Mitigating SaaS Growth Velocity Stagnation",
-    "context_tags": ["growth_decline", "saas_velocity", "topline", "monetization"],
+    "context_tags": ["growth_decline", "topline", "saas_velocity"],
     "problem_description": "A mature SaaS platform suffered a sharp slowdown in monthly recurring revenue growth due to pricing model stagnation.",
     "root_causes": [
       "Legacy flat-rate pricing failing to capture feature expansion value",
@@ -78,7 +78,7 @@
     "case_id": "saas_case_6",
     "sector_id": "TECH_SAAS",
     "title": "Reversing LTV Decay in Enterprise Accounts",
-    "context_tags": ["ltv_decay", "customer_worth", "monetization", "account_health"],
+    "context_tags": ["ltv_decay", "monetization", "customer_worth"],
     "problem_description": "Average customer lifetime value dropped as account contract lengths shortened and renewal discounts escalated.",
     "root_causes": [
       "Aggressive initial discounting without long-term commit incentives",
@@ -93,7 +93,7 @@
     "case_id": "saas_case_7",
     "sector_id": "TECH_SAAS",
     "title": "Cash Burn Crisis and Runway Extension",
-    "context_tags": ["runway_crisis", "burn_spike", "capital_efficiency", "sales_burn"],
+    "context_tags": ["runway_crisis", "burn_spike", "capital_efficiency"],
     "problem_description": "A series-A startup experienced a burn spike that reduced operating cash runway below six months.",
     "root_causes": [
       "Premature headcount expansion in outbound sales before achieving product-market fit",
@@ -108,7 +108,7 @@
     "case_id": "saas_case_8",
     "sector_id": "TECH_SAAS",
     "title": "SaaS Acquisition Efficiency Restoration",
-    "context_tags": ["acquisition_efficiency", "cac_inflation", "saas_velocity", "growth_decline"],
+    "context_tags": ["cac_inflation", "acquisition_efficiency", "sales_burn"],
     "problem_description": "Customer conversion rates declined while cost per lead surged, resulting in low acquisition efficiency.",
     "root_causes": [
       "Ad creative fatigue and misaligned target audience segments on paid channels",
@@ -123,7 +123,7 @@
     "case_id": "saas_case_9",
     "sector_id": "TECH_SAAS",
     "title": "Reversing Churn Spikes in Mid-Market Tiers",
-    "context_tags": ["churn_related", "customer_attrition", "account_health", "retention_leak"],
+    "context_tags": ["churn_related", "retention_leak", "customer_attrition"],
     "problem_description": "Mid-market accounts experienced sudden customer attrition due to unresolved technical debt.",
     "root_causes": [
       "Frequent platform downtime during core business operating hours",
@@ -138,7 +138,7 @@
     "case_id": "saas_case_10",
     "sector_id": "TECH_SAAS",
     "title": "Gross Profit Margin Optimization",
-    "context_tags": ["gross_profit", "margin_compression", "cogs_inflation", "capital_efficiency"],
+    "context_tags": ["margin_compression", "cogs_inflation", "gross_profit"],
     "problem_description": "Third-party API vendor cost increases severely eroded gross profit margins.",
     "root_causes": [
       "Heavy reliance on non-negotiated pay-as-you-go third-party AI/data APIs",
@@ -153,7 +153,7 @@
     "case_id": "saas_case_11",
     "sector_id": "TECH_SAAS",
     "title": "Rebuilding SaaS Revenue Velocity",
-    "context_tags": ["saas_velocity", "topline", "growth_decline", "monetization"],
+    "context_tags": ["growth_decline", "topline", "saas_velocity"],
     "problem_description": "Long sales cycles hindered revenue velocity and slowed new customer pipeline conversion.",
     "root_causes": [
       "Overly restrictive security compliance processes stalling enterprise procurement",
@@ -168,7 +168,7 @@
     "case_id": "saas_case_12",
     "sector_id": "TECH_SAAS",
     "title": "Addressing Account Health Degradation",
-    "context_tags": ["account_health", "nrr_drop", "retention_leak", "customer_worth"],
+    "context_tags": ["nrr_drop", "expansion_revenue", "account_health"],
     "problem_description": "Declining daily active usage signaled account health degradation across core enterprise accounts.",
     "root_causes": [
       "Lack of ongoing user training after initial onboarding completion",
@@ -183,7 +183,7 @@
     "case_id": "saas_case_13",
     "sector_id": "TECH_SAAS",
     "title": "Reversing Customer Worth & LTV Erosion",
-    "context_tags": ["customer_worth", "ltv_decay", "expansion_revenue", "monetization"],
+    "context_tags": ["ltv_decay", "monetization", "customer_worth"],
     "problem_description": "Customer lifetime worth steadily eroded due to minimal tier upgrades and seat expansion.",
     "root_causes": [
       "Seat-based pricing model disincentivizing broader org-wide adoption",
@@ -198,7 +198,7 @@
     "case_id": "saas_case_14",
     "sector_id": "TECH_SAAS",
     "title": "Sales Burn Containment in Early-Stage SaaS",
-    "context_tags": ["sales_burn", "burn_spike", "capital_efficiency", "cac_inflation"],
+    "context_tags": ["runway_crisis", "burn_spike", "capital_efficiency"],
     "problem_description": "Uncontrolled sales burn rapidly consumed seed capital without yielding proportional MRR gains.",
     "root_causes": [
       "Hiring senior enterprise sales executives before defining repeatability",
@@ -213,7 +213,7 @@
     "case_id": "saas_case_15",
     "sector_id": "TECH_SAAS",
     "title": "Expansion Revenue Recovery Strategy",
-    "context_tags": ["expansion_revenue", "nrr_drop", "topline", "growth_decline"],
+    "context_tags": ["nrr_drop", "expansion_revenue", "account_health"],
     "problem_description": "Net revenue growth stagnated due to zero expansion revenue generated from existing client bases.",
     "root_causes": [
       "Account managers focused purely on contract renewals rather than expansion",
@@ -228,7 +228,7 @@
     "case_id": "saas_case_16",
     "sector_id": "TECH_SAAS",
     "title": "Mitigating High Topline Revenue Drag",
-    "context_tags": ["topline", "growth_decline", "churn_related", "nrr_drop"],
+    "context_tags": ["growth_decline", "topline", "saas_velocity"],
     "problem_description": "Topline ARR growth flattened completely due to churn offsetting new customer additions.",
     "root_causes": [
       "Poor alignment between marketing promises and actual product capabilities",
@@ -243,7 +243,7 @@
     "case_id": "saas_case_17",
     "sector_id": "TECH_SAAS",
     "title": "Capital Efficiency Recovery Post-Burn Spike",
-    "context_tags": ["capital_efficiency", "burn_spike", "runway_crisis", "sales_burn"],
+    "context_tags": ["runway_crisis", "burn_spike", "capital_efficiency"],
     "problem_description": "Inefficient capital allocation damaged runway metrics following an unmonitored spending surge.",
     "root_causes": [
       "Lack of centralized procurement policy for engineering software licenses",
@@ -258,7 +258,7 @@
     "case_id": "saas_case_18",
     "sector_id": "TECH_SAAS",
     "title": "Stopping Retention Leaks in SMB Segments",
-    "context_tags": ["retention_leak", "churn_related", "customer_attrition", "account_health"],
+    "context_tags": ["churn_related", "retention_leak", "customer_attrition"],
     "problem_description": "Severe retention leaks in SMB tiers caused high churn within 90 days of sign-up.",
     "root_causes": [
       "High onboarding friction requiring manual developer setup",
@@ -273,7 +273,7 @@
     "case_id": "saas_case_19",
     "sector_id": "TECH_SAAS",
     "title": "Monetization Strategy Overhaul",
-    "context_tags": ["monetization", "customer_worth", "ltv_decay", "gross_profit"],
+    "context_tags": ["ltv_decay", "monetization", "customer_worth"],
     "problem_description": "Suboptimal monetization strategy resulted in low average revenue per account (ARPA).",
     "root_causes": [
       "Underpricing enterprise tiers relative to competitor benchmarks",
@@ -288,7 +288,7 @@
     "case_id": "saas_case_20",
     "sector_id": "TECH_SAAS",
     "title": "Preventing Burn Spikes During Scaling",
-    "context_tags": ["burn_spike", "cogs_inflation", "runway_crisis", "capital_efficiency"],
+    "context_tags": ["margin_compression", "cogs_inflation", "gross_profit"],
     "problem_description": "Engineering infrastructure scaling costs caused an unexpected monthly burn spike.",
     "root_causes": [
       "Unpartitioned database tables causing exponentially increasing query costs",
@@ -303,7 +303,7 @@
     "case_id": "saas_case_21",
     "sector_id": "TECH_SAAS",
     "title": "Acquisition Efficiency via PLG Expansion",
-    "context_tags": ["acquisition_efficiency", "saas_velocity", "cac_inflation", "topline"],
+    "context_tags": ["cac_inflation", "acquisition_efficiency", "sales_burn"],
     "problem_description": "High outbound marketing costs led to a pivot toward product-led growth (PLG) efficiency.",
     "root_causes": [
       "Outbound cold outreach generating low-intent, high-CAC pipeline",
@@ -318,7 +318,7 @@
     "case_id": "saas_case_22",
     "sector_id": "TECH_SAAS",
     "title": "Stemming Customer Attrition in High-Value Accounts",
-    "context_tags": ["customer_attrition", "account_health", "retention_leak", "nrr_drop"],
+    "context_tags": ["churn_related", "retention_leak", "customer_attrition"],
     "problem_description": "Key enterprise accounts churned after key champion turnover at customer organizations.",
     "root_causes": [
       "Single-threaded relationships relying on one internal executive champion",
@@ -333,7 +333,7 @@
     "case_id": "saas_case_23",
     "sector_id": "TECH_SAAS",
     "title": "COGS Inflation Reduction in Data-Intensive SaaS",
-    "context_tags": ["cogs_inflation", "margin_compression", "gross_profit", "capital_efficiency"],
+    "context_tags": ["margin_compression", "cogs_inflation", "gross_profit"],
     "problem_description": "Data storage surcharges created COGS inflation that compressed gross margins.",
     "root_causes": [
       "Storing uncompressed logs and analytics events in primary databases indefinitely",
@@ -348,7 +348,7 @@
     "case_id": "saas_case_24",
     "sector_id": "TECH_SAAS",
     "title": "Resolving Growth Decline via Re-Engagement",
-    "context_tags": ["growth_decline", "churn_related", "ltv_decay", "saas_velocity"],
+    "context_tags": ["growth_decline", "topline", "saas_velocity"],
     "problem_description": "Declining ARR growth rates prompted a win-back campaign for churned accounts.",
     "root_causes": [
       "Ignoring feedback from churned clients regarding missing feature integrations",
@@ -363,7 +363,7 @@
     "case_id": "saas_case_25",
     "sector_id": "TECH_SAAS",
     "title": "Turnaround Strategy for Runway Crisis",
-    "context_tags": ["runway_crisis", "sales_burn", "burn_spike", "margin_compression"],
+    "context_tags": ["runway_crisis", "burn_spike", "capital_efficiency"],
     "problem_description": "An unexpected runway crisis forced emergency operational restructuring.",
     "root_causes": [
       "Simultaneous contraction in ARR growth and surge in cloud/sales expenditures",
@@ -378,7 +378,7 @@
     "case_id": "retail_case_1",
     "sector_id": "RETAIL",
     "title": "Inventory Turn and Dead Stock Reduction",
-    "context_tags": ["dead_stock", "inventory_velocity", "working_capital", "inventory_clearance"],
+    "context_tags": ["dead_stock", "inventory_velocity", "working_capital"],
     "problem_description": "Excess inventory and dead stock locked up working capital, causing warehouse and storage cost inflation.",
     "root_causes": [
       "Inaccurate demand forecasting models for seasonal goods",
@@ -393,7 +393,7 @@
     "case_id": "retail_case_2",
     "sector_id": "RETAIL",
     "title": "Improving Sell-Through and Stock Efficiency",
-    "context_tags": ["sell_through", "stock_efficiency", "inventory_clearance", "retail_velocity"],
+    "context_tags": ["inventory_clearance", "sell_through", "stock_efficiency"],
     "problem_description": "Low sell-through rates across core apparel categories led to stock inefficiencies and high holding costs.",
     "root_causes": [
       "Misaligned initial pricing compared to competitor offerings",
@@ -408,7 +408,7 @@
     "case_id": "retail_case_3",
     "sector_id": "RETAIL",
     "title": "AOV Expansion and Basket Size Growth",
-    "context_tags": ["basket_size", "pricing_elasticity", "aov_drop", "store_productivity"],
+    "context_tags": ["basket_size", "pricing_elasticity", "aov_drop"],
     "problem_description": "Declining average order value (AOV) reduced overall store profitability and yield.",
     "root_causes": [
       "Lack of point-of-sale cross-selling training for checkout agents",
@@ -423,7 +423,7 @@
     "case_id": "retail_case_4",
     "sector_id": "RETAIL",
     "title": "Product Returns and Refund Rate Mitigation",
-    "context_tags": ["product_returns", "refund_rate", "return_leakage", "retail_margin"],
+    "context_tags": ["product_returns", "refund_rate", "return_leakage"],
     "problem_description": "High return rates and refund leakage compressed retail margins and disrupted reverse logistics.",
     "root_causes": [
       "Inconsistent and inaccurate size guides on the e-commerce website",
@@ -438,7 +438,7 @@
     "case_id": "retail_case_5",
     "sector_id": "RETAIL",
     "title": "Margin Compression and Pricing Pressure Relief",
-    "context_tags": ["retail_margin", "pricing_pressure", "margin_erosion", "cogs_inflation"],
+    "context_tags": ["retail_margin", "pricing_pressure", "margin_erosion"],
     "problem_description": "Supplier cost inflation and intense local retail competition caused significant margin erosion.",
     "root_causes": [
       "Rising raw material and freight surcharges passed down by vendors",
@@ -453,7 +453,7 @@
     "case_id": "retail_case_6",
     "sector_id": "RETAIL",
     "title": "Store Yield and Footfall Efficiency Optimization",
-    "context_tags": ["store_productivity", "footfall_efficiency", "retail_yield", "comp_sales"],
+    "context_tags": ["store_productivity", "footfall_efficiency", "retail_yield"],
     "problem_description": "Physical retail locations suffered low sales yield per square foot despite consistent foot traffic.",
     "root_causes": [
       "Poor store layout bottlenecking traffic away from premium product shelves",
@@ -468,7 +468,7 @@
     "case_id": "retail_case_7",
     "sector_id": "RETAIL",
     "title": "Comp-Sales Acceleration and Velocity Recovery",
-    "context_tags": ["comp_sales", "store_growth", "retail_velocity", "same_store_sales_growth"],
+    "context_tags": ["comp_sales", "store_growth", "retail_velocity"],
     "problem_description": "Same-store sales growth stagnated year-over-year across regional retail branches.",
     "root_causes": [
       "Outdated loyalty program failing to drive repeat store visits",
@@ -483,7 +483,7 @@
     "case_id": "retail_case_8",
     "sector_id": "RETAIL",
     "title": "Ad Spend Efficiency and Acquisition Turnaround",
-    "context_tags": ["ad_spend_efficiency", "customer_acquisition", "cac_inflation", "basket_size"],
+    "context_tags": ["cac_inflation", "customer_acquisition", "ad_spend_efficiency"],
     "problem_description": "Retail customer acquisition costs escalated due to inefficient digital advertising spend.",
     "root_causes": [
       "Broad-match ad campaigns targeting low-intent shopper keywords",
@@ -498,7 +498,7 @@
     "case_id": "retail_case_9",
     "sector_id": "RETAIL",
     "title": "Clearing Dead Stock in Seasonal Lines",
-    "context_tags": ["dead_stock", "inventory_clearance", "sell_through", "stock_efficiency"],
+    "context_tags": ["inventory_clearance", "sell_through", "stock_efficiency"],
     "problem_description": "Failure to clear seasonal apparel resulted in heavy dead stock accumulation in central warehouses.",
     "root_causes": [
       "Unusually mild weather patterns reducing cold-weather apparel demand",
@@ -513,7 +513,7 @@
     "case_id": "retail_case_10",
     "sector_id": "RETAIL",
     "title": "Pricing Elasticity Optimization for Retail Yield",
-    "context_tags": ["pricing_elasticity", "retail_yield", "pricing_pressure", "retail_margin"],
+    "context_tags": ["basket_size", "pricing_elasticity", "aov_drop"],
     "problem_description": "Rigid pricing strategies failed to adjust to localized consumer price elasticity trends.",
     "root_causes": [
       "Uniform pricing across high-income and low-income store regions",
@@ -528,7 +528,7 @@
     "case_id": "retail_case_11",
     "sector_id": "RETAIL",
     "title": "Mitigating Working Capital Locks in Inventory",
-    "context_tags": ["working_capital", "inventory_velocity", "stock_efficiency", "dead_stock"],
+    "context_tags": ["dead_stock", "inventory_velocity", "working_capital"],
     "problem_description": "Poor inventory velocity tied up critical working capital needed for seasonal purchasing.",
     "root_causes": [
       "Ordering large minimum order quantities (MOQ) to achieve minor vendor discounts",
@@ -543,7 +543,7 @@
     "case_id": "retail_case_12",
     "sector_id": "RETAIL",
     "title": "Stemming Margin Erosion in E-Commerce Channels",
-    "context_tags": ["margin_erosion", "retail_margin", "return_leakage", "pricing_pressure"],
+    "context_tags": ["retail_margin", "pricing_pressure", "margin_erosion"],
     "problem_description": "Free shipping and return policies caused severe margin erosion in online retail operations.",
     "root_causes": [
       "Unrestricted free return policies on low-margin items",
@@ -558,7 +558,7 @@
     "case_id": "retail_case_13",
     "sector_id": "RETAIL",
     "title": "Reversing AOV Drops in Online Stores",
-    "context_tags": ["aov_drop", "basket_size", "pricing_elasticity", "sell_through"],
+    "context_tags": ["basket_size", "pricing_elasticity", "aov_drop"],
     "problem_description": "Average order values declined online as customers purchased single items per transaction.",
     "root_causes": [
       "Lack of product recommendation widgets on cart pages",
@@ -573,7 +573,7 @@
     "case_id": "retail_case_14",
     "sector_id": "RETAIL",
     "title": "Boosting Store Productivity and Retail Yield",
-    "context_tags": ["store_productivity", "retail_yield", "footfall_efficiency", "store_growth"],
+    "context_tags": ["store_productivity", "footfall_efficiency", "retail_yield"],
     "problem_description": "Underperforming store locations generated low retail yield despite premium lease costs.",
     "root_causes": [
       "Cluttered store displays obstructing line-of-sight to high-margin categories",
@@ -588,7 +588,7 @@
     "case_id": "retail_case_15",
     "sector_id": "RETAIL",
     "title": "Accelerating Same-Store Sales Growth",
-    "context_tags": ["same_store_sales_growth", "comp_sales", "retail_velocity", "store_growth"],
+    "context_tags": ["comp_sales", "store_growth", "retail_velocity"],
     "problem_description": "Same-store sales growth dipped due to sluggish foot traffic and outdated store branding.",
     "root_causes": [
       "Failure to refresh store window displays and exterior signage",
@@ -603,7 +603,7 @@
     "case_id": "retail_case_16",
     "sector_id": "RETAIL",
     "title": "Minimizing Refund Rate and Return Leakage",
-    "context_tags": ["refund_rate", "return_leakage", "product_returns", "ad_spend_efficiency"],
+    "context_tags": ["product_returns", "refund_rate", "return_leakage"],
     "problem_description": "High refund rates damaged net revenue across apparel and footwear categories.",
     "root_causes": [
       "Color accuracy discrepancies between online catalog photos and physical goods",
@@ -618,7 +618,7 @@
     "case_id": "retail_case_17",
     "sector_id": "RETAIL",
     "title": "CAC Inflation Containment in Retail Marketing",
-    "context_tags": ["cac_inflation", "customer_acquisition", "ad_spend_efficiency", "basket_size"],
+    "context_tags": ["cac_inflation", "customer_acquisition", "ad_spend_efficiency"],
     "problem_description": "Surging customer acquisition costs eroded margins for direct-to-consumer (DTC) channels.",
     "root_causes": [
       "Over-bidding on generic keyword terms on search engines",
@@ -633,7 +633,7 @@
     "case_id": "retail_case_18",
     "sector_id": "RETAIL",
     "title": "Optimizing Inventory Velocity in Multi-Channel Retail",
-    "context_tags": ["inventory_velocity", "stock_efficiency", "working_capital", "sell_through"],
+    "context_tags": ["dead_stock", "inventory_velocity", "working_capital"],
     "problem_description": "Mismatched inventory distribution across physical stores and online fulfillment hubs slowed velocity.",
     "root_causes": [
       "Siloed inventory pools preventing store fulfillment of online orders",
@@ -648,7 +648,7 @@
     "case_id": "retail_case_19",
     "sector_id": "RETAIL",
     "title": "Relieving Retail Pricing Pressure",
-    "context_tags": ["pricing_pressure", "retail_margin", "margin_erosion", "pricing_elasticity"],
+    "context_tags": ["retail_margin", "pricing_pressure", "margin_erosion"],
     "problem_description": "Intense price competition led to discounting that damaged brand prestige and compressed margins.",
     "root_causes": [
       "Uncoordinated promotional calendar running back-to-back discount sales",
@@ -663,7 +663,7 @@
     "case_id": "retail_case_20",
     "sector_id": "RETAIL",
     "title": "Improving Footfall Efficiency in Mall Stores",
-    "context_tags": ["footfall_efficiency", "store_productivity", "comp_sales", "retail_yield"],
+    "context_tags": ["store_productivity", "footfall_efficiency", "retail_yield"],
     "problem_description": "High mall foot traffic failed to translate into store entry and purchasing transactions.",
     "root_causes": [
       "Closed or unwelcoming storefront design discouraging store entry",
@@ -678,7 +678,7 @@
     "case_id": "retail_case_21",
     "sector_id": "RETAIL",
     "title": "Driving Store Growth and Retail Velocity",
-    "context_tags": ["store_growth", "retail_velocity", "same_store_sales_growth", "working_capital"],
+    "context_tags": ["comp_sales", "store_growth", "retail_velocity"],
     "problem_description": "Sluggish retail velocity across suburban stores slowed overall company expansion plans.",
     "root_causes": [
       "Outdated product mix failing to reflect local suburban buyer preferences",
@@ -693,7 +693,7 @@
     "case_id": "retail_case_22",
     "sector_id": "RETAIL",
     "title": "Stock Efficiency and Inventory Clearance Streamlining",
-    "context_tags": ["stock_efficiency", "inventory_clearance", "dead_stock", "sell_through"],
+    "context_tags": ["inventory_clearance", "sell_through", "stock_efficiency"],
     "problem_description": "Clearance sections in physical stores accumulated slow-moving stock, lowering store appeal.",
     "root_causes": [
       "Mixing clearance items randomly with regular-priced merchandise",
@@ -708,7 +708,7 @@
     "case_id": "retail_case_23",
     "sector_id": "RETAIL",
     "title": "Improving Return Leakage and Product Returns",
-    "context_tags": ["return_leakage", "product_returns", "refund_rate", "working_capital"],
+    "context_tags": ["product_returns", "refund_rate", "return_leakage"],
     "problem_description": "Excessive product returns in home goods categories tied up working capital during peak quarters.",
     "root_causes": [
       "Inadequate protective packaging leading to minor cosmetic transit damage",
@@ -723,7 +723,7 @@
     "case_id": "retail_case_24",
     "sector_id": "RETAIL",
     "title": "Retail Customer Acquisition & Ad Spend Optimization",
-    "context_tags": ["customer_acquisition", "ad_spend_efficiency", "cac_inflation", "customer_acquisition"],
+    "context_tags": ["cac_inflation", "customer_acquisition", "ad_spend_efficiency"],
     "problem_description": "Retail marketing channels suffered declining return on ad spend (ROAS).",
     "root_causes": [
       "Failure to segment email marketing lists by purchasing history",
@@ -738,7 +738,7 @@
     "case_id": "retail_case_25",
     "sector_id": "RETAIL",
     "title": "Restoring Retail Margins Post-Clearance",
-    "context_tags": ["retail_margin", "margin_erosion", "cogs_inflation", "pricing_pressure"],
+    "context_tags": ["retail_margin", "pricing_pressure", "margin_erosion"],
     "problem_description": "Extended promotional clearance sales created persistent retail margin erosion.",
     "root_causes": [
       "Customers delaying purchases to wait for recurring promotional sales",
