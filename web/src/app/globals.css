@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* Design tokens (Phase3-Plan §1) — CSS custom properties, not scattered hex
+   literals, so the palette can be retuned in one place once real content lands. */
+:root {
+  --ground: #fbfbf9; /* near-paper, warm-neutral */
+  --ink: #17191c; /* primary text */
+  --ink-muted: #6b7076; /* labels, captions */
+  --rule: #e3e3de; /* hairlines, card borders */
+  --accent: #2f5d50; /* deep green — reserved for the confidence/signature element only */
+  --flag: #b3541e; /* burnt orange — severity emphasis, used sparingly */
+
+  --font-display: var(--font-inter-tight);
+  --font-body: var(--font-inter);
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-flag: var(--flag);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+/* Numbers matter more than prose here — every number in a card or table
+   must use tabular figures, non-negotiable (Phase3-Plan §1). Applied before
+   any numbers are rendered. */
+.data {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Visible keyboard focus on every interactive element (Quality floor,
+   Phase3-Plan). One global rule instead of annotating every button/input,
+   so nothing new is silently unstyled as components are added. */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Motion — almost none, and only where explicitly opted in. One thing only:
+   anomaly cards fade in staggered on load, ~40ms apart (Phase3-Plan §1). */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

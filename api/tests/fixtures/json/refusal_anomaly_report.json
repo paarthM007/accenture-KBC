@@ -1,0 +1,33 @@
+{
+  "$schema": "anomaly_report_v1",
+  "company_id": "company_refusal_001",
+  "sector_id": "TECH_SAAS",
+  "analysis_timestamp": "2024-04-30T12:00:00",
+  "reporting_period": {
+    "type": "monthly",
+    "start": "2024-01-01",
+    "end": "2024-04-30"
+  },
+  "company_profile_summary": {
+    "revenue_band": "1M-10M",
+    "employee_count": 30,
+    "region": "US"
+  },
+  "overall_health_score": null,
+  "anomalies": [],
+  "non_anomalous_highlights": [],
+  "refusal": {
+    "reason": "insufficient_periods",
+    "message": "Every submitted metric has fewer than 6 monthly periods, the floor for full trend analysis. We can't reliably separate a genuine shift from noise with this little history.",
+    "suggested_resolution": "Submit at least 6 consecutive monthly periods for at least one metric to receive a full analysis."
+  },
+  "metadata": {
+    "model_version": "0.1.0-mock",
+    "synthetic_profile_version": "tech_saas_v1",
+    "metrics_analyzed": 3,
+    "metrics_with_anomalies": 0,
+    "metrics_with_missing_data": 0,
+    "skipped_metrics": [],
+    "processing_time_ms": 45
+  }
+}

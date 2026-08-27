@@ -1,0 +1,170 @@
+# C2's parsing config: aliases, units, ranges, display names.
+# C1's sector YAMLs (ml_engine/config/sectors/*.yaml) govern statistics:
+# distributions, weights, correlations. Some fields overlap (unit, display
+# name); most don't. See C2-MasterPlan.md §8.7 and pipeline-Contract-V1.md §5.3.
+#
+# Divergence risk (O10/O8): once ml_engine repo access lands, add a test
+# asserting this metric_id set matches C1's sector YAMLs exactly.
+#
+# valid_min/valid_max are ABSURDITY bounds, not plausibility bounds — they
+# catch typos and unit disasters, not bad business performance. Set wide.
+# The distributional fraction/percent check (Contract §4.2) does the real
+# unit-error detection, driven by `unit: percentage` — that field is load-bearing.
+
+metrics:
+  # --- TECH_SAAS (7) ---
+  monthly_recurring_revenue_growth:
+    display_name: "MRR Growth (%)"
+    unit: percentage
+    valid_min: -100.0
+    valid_max: 1000.0
+    direction: higher_is_better
+    sector_ids: [TECH_SAAS]
+    category: revenue
+    common_aliases: ["MRR Growth", "MRR Growth %", "Monthly Recurring Revenue Growth", "MRR"]
+
+  churn_rate:
+    display_name: "Churn Rate (%)"
+    unit: percentage
+    valid_min: 0.0
+    valid_max: 100.0
+    direction: lower_is_better
+    sector_ids: [TECH_SAAS]
+    category: retention
+    common_aliases: ["Churn", "Churn %", "Customer Churn", "Monthly Churn"]
+
+  customer_acquisition_cost:
+    display_name: "Customer Acquisition Cost ($)"
+    unit: currency_usd
+    valid_min: 0.0
+    valid_max: 1000000.0
+    direction: lower_is_better
+    sector_ids: [TECH_SAAS, RETAIL]
+    category: acquisition
+    common_aliases: ["CAC", "Acquisition Cost", "Cost per Customer"]
+
+  lifetime_value:
+    display_name: "Customer Lifetime Value ($)"
+    unit: currency_usd
+    valid_min: 0.0
+    valid_max: 10000000.0
+    direction: higher_is_better
+    sector_ids: [TECH_SAAS]
+    category: monetization
+    common_aliases: ["LTV", "CLV", "Customer Lifetime Value"]
+
+  net_revenue_retention:
+    display_name: "Net Revenue Retention (%)"
+    unit: percentage
+    valid_min: 0.0
+    valid_max: 500.0
+    direction: higher_is_better
+    sector_ids: [TECH_SAAS]
+    category: retention
+    common_aliases: ["NRR", "Net Revenue Retention", "Net Dollar Retention", "NDR"]
+
+  burn_rate:
+    display_name: "Burn Rate ($)"
+    unit: currency_usd
+    valid_min: -100000000.0
+    valid_max: 100000000.0
+    direction: lower_is_better
+    sector_ids: [TECH_SAAS]
+    category: capital
+    common_aliases: ["Burn", "Monthly Burn", "Cash Burn"]
+
+  gross_margin:
+    display_name: "Gross Margin (%)"
+    unit: percentage
+    valid_min: -100.0
+    valid_max: 100.0
+    direction: higher_is_better
+    sector_ids: [TECH_SAAS, RETAIL]
+    category: profitability
+    common_aliases: ["GM", "Gross Margin %", "Gross Profit Margin"]
+
+  # --- RETAIL-only (6, plus gross_margin and customer_acquisition_cost above) ---
+  inventory_turnover:
+    display_name: "Inventory Turnover"
+    unit: ratio
+    valid_min: 0.0
+    valid_max: 100.0
+    direction: higher_is_better
+    sector_ids: [RETAIL]
+    category: working_capital
+    common_aliases: ["Inventory Turns", "Stock Turnover", "Turns"]
+
+  average_order_value:
+    display_name: "Average Order Value ($)"
+    unit: currency_usd
+    valid_min: 0.0
+    valid_max: 1000000.0
+    direction: higher_is_better
+    sector_ids: [RETAIL]
+    category: pricing
+    common_aliases: ["AOV", "Avg Order Value", "Basket Size"]
+
+  revenue_per_sqft:
+    display_name: "Revenue per Square Foot ($)"
+    unit: currency_usd
+    valid_min: 0.0
+    valid_max: 100000.0
+    direction: higher_is_better
+    sector_ids: [RETAIL]
+    category: productivity
+    common_aliases: ["Revenue per Square Foot", "Sales per Sqft", "RPSF"]
+
+  same_store_sales_growth:
+    display_name: "Same-Store Sales Growth (%)"
+    unit: percentage
+    valid_min: -100.0
+    valid_max: 1000.0
+    direction: higher_is_better
+    sector_ids: [RETAIL]
+    category: growth
+    common_aliases: ["Comp Sales", "Comparable Store Sales", "SSS Growth", "Like-for-Like Sales"]
+
+  sell_through_rate:
+    display_name: "Sell-Through Rate (%)"
+    unit: percentage
+    valid_min: 0.0
+    valid_max: 100.0
+    direction: higher_is_better
+    sector_ids: [RETAIL]
+    category: inventory
+    common_aliases: ["Sell Through", "Sell-Through %", "STR"]
+
+  return_rate:
+    display_name: "Return Rate (%)"
+    unit: percentage
+    valid_min: 0.0
+    valid_max: 100.0
+    direction: lower_is_better
+    sector_ids: [RETAIL]
+    category: returns
+    common_aliases: ["Returns", "Return %", "Product Return Rate", "Refund Rate"]
+
+thresholds:
+  min_periods:
+    monthly: { hard_block: 3, soft_warn: 5, full_trend: 6 }
+    quarterly: { hard_block: 2, soft_warn: 3, full_trend: 4 }
+    annual: { hard_block: 2, soft_warn: 2, full_trend: 3 }
+
+  severity_bands: # half-open, lower bound inclusive
+    SEVERE: 75
+    CRITICAL: 50
+    WARNING: 25
+
+  confidence:
+    form: 1.0
+    clean_csv: 0.9
+    ambiguous_csv: 0.75
+    default: 1.0
+
+revenue_bands:
+  # O12 (Contract §9): C2 is proceeding on lower bound inclusive, upper
+  # exclusive. 10_000_000 -> "10M-100M". Confirm or correct with C1.
+  - { id: "<1M", min: 0, max: 1000000 }
+  - { id: "1M-10M", min: 1000000, max: 10000000 }
+  - { id: "10M-100M", min: 10000000, max: 100000000 }
+  - { id: ">100M", min: 100000000, max: null }

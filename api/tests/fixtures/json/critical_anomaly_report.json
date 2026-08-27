@@ -1,0 +1,185 @@
+{
+  "$schema": "anomaly_report_v1",
+  "company_id": "company_critical_001",
+  "sector_id": "TECH_SAAS",
+  "analysis_timestamp": "2024-08-31T12:00:00",
+  "reporting_period": {
+    "type": "monthly",
+    "start": "2024-01-01",
+    "end": "2024-08-31"
+  },
+  "company_profile_summary": {
+    "revenue_band": "1M-10M",
+    "employee_count": 52,
+    "region": "US"
+  },
+  "overall_health_score": 38.0,
+  "anomalies": [
+    {
+      "anomaly_id": "anom_critical_churn_rate",
+      "metric_id": "churn_rate",
+      "metric_display_name": "Churn Rate (%)",
+      "category": "retention",
+      "severity_score": 82.0,
+      "severity_label": "SEVERE",
+      "deviation": {
+        "observed_current": 5.2,
+        "expected_value": 2.0,
+        "expected_std": 0.8,
+        "z_score": 4.0,
+        "percentile": 99.9,
+        "direction": "above_expected"
+      },
+      "trend": {
+        "direction": "deteriorating",
+        "slope": 0.443,
+        "acceleration": null,
+        "periods_deviating": 6,
+        "values_over_time": [
+          {
+            "period": "2024-01",
+            "value": 2.1,
+            "z_score": 0.125
+          },
+          {
+            "period": "2024-02",
+            "value": 2.5,
+            "z_score": 0.625
+          },
+          {
+            "period": "2024-03",
+            "value": 3.0,
+            "z_score": 1.25
+          },
+          {
+            "period": "2024-04",
+            "value": 3.4,
+            "z_score": 1.75
+          },
+          {
+            "period": "2024-05",
+            "value": 3.9,
+            "z_score": 2.375
+          },
+          {
+            "period": "2024-06",
+            "value": 4.3,
+            "z_score": 2.875
+          },
+          {
+            "period": "2024-07",
+            "value": 4.8,
+            "z_score": 3.5
+          },
+          {
+            "period": "2024-08",
+            "value": 5.2,
+            "z_score": 4.0
+          }
+        ]
+      },
+      "correlated_anomalies": [
+        "anom_critical_nrr"
+      ],
+      "noise_confidence": 0.93,
+      "context_tags": [
+        "churn_related",
+        "retention_leak",
+        "customer_attrition"
+      ],
+      "natural_language_summary": "Churn rate rose from 2.1% to 5.2% over the past 8 months, consistently exceeding the expected baseline of 2.0% for a company of this profile."
+    },
+    {
+      "anomaly_id": "anom_critical_nrr",
+      "metric_id": "net_revenue_retention",
+      "metric_display_name": "Net Revenue Retention (%)",
+      "category": "retention",
+      "severity_score": 68.0,
+      "severity_label": "CRITICAL",
+      "deviation": {
+        "observed_current": 88.0,
+        "expected_value": 100.0,
+        "expected_std": 6.0,
+        "z_score": -2.0,
+        "percentile": 2.3,
+        "direction": "below_expected"
+      },
+      "trend": {
+        "direction": "deteriorating",
+        "slope": -2.571,
+        "acceleration": null,
+        "periods_deviating": 6,
+        "values_over_time": [
+          {
+            "period": "2024-01",
+            "value": 106.0,
+            "z_score": 1.0
+          },
+          {
+            "period": "2024-02",
+            "value": 103.0,
+            "z_score": 0.5
+          },
+          {
+            "period": "2024-03",
+            "value": 101.0,
+            "z_score": 0.167
+          },
+          {
+            "period": "2024-04",
+            "value": 98.0,
+            "z_score": -0.333
+          },
+          {
+            "period": "2024-05",
+            "value": 96.0,
+            "z_score": -0.667
+          },
+          {
+            "period": "2024-06",
+            "value": 93.0,
+            "z_score": -1.167
+          },
+          {
+            "period": "2024-07",
+            "value": 91.0,
+            "z_score": -1.5
+          },
+          {
+            "period": "2024-08",
+            "value": 88.0,
+            "z_score": -2.0
+          }
+        ]
+      },
+      "correlated_anomalies": [
+        "anom_critical_churn_rate"
+      ],
+      "noise_confidence": 0.88,
+      "context_tags": [
+        "nrr_drop",
+        "expansion_revenue",
+        "account_health"
+      ],
+      "natural_language_summary": "Net revenue retention fell from 106% to 88% over the past 8 months, below the expected baseline of 100% for a company of this profile, alongside a concurrent rise in churn."
+    }
+  ],
+  "non_anomalous_highlights": [
+    {
+      "metric_id": "gross_margin",
+      "status": "healthy",
+      "percentile": 62.0,
+      "note": "Gross margin remains stable near the expected baseline for this profile."
+    }
+  ],
+  "refusal": null,
+  "metadata": {
+    "model_version": "0.1.0-mock",
+    "synthetic_profile_version": "tech_saas_v1",
+    "metrics_analyzed": 3,
+    "metrics_with_anomalies": 2,
+    "metrics_with_missing_data": 0,
+    "skipped_metrics": [],
+    "processing_time_ms": 210
+  }
+}

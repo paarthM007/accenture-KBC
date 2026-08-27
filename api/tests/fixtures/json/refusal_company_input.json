@@ -1,0 +1,101 @@
+{
+  "company_id": "company_refusal_001",
+  "sector_id": "TECH_SAAS",
+  "company_metadata": {
+    "name": "Small Test Co",
+    "founded_year": 2023,
+    "employee_count": 30,
+    "annual_revenue": 2500000.0,
+    "revenue_band": "1M-10M",
+    "region": "US"
+  },
+  "reporting_period": {
+    "type": "monthly",
+    "start": "2024-01-01",
+    "end": "2024-04-30"
+  },
+  "metrics": [
+    {
+      "metric_id": "churn_rate",
+      "granularity": "monthly",
+      "values": [
+        {
+          "period": "2024-01",
+          "value": 2.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-02",
+          "value": 2.1,
+          "interpolated": false
+        },
+        {
+          "period": "2024-03",
+          "value": 1.9,
+          "interpolated": false
+        },
+        {
+          "period": "2024-04",
+          "value": 2.0,
+          "interpolated": false
+        }
+      ],
+      "confidence": 1.0
+    },
+    {
+      "metric_id": "net_revenue_retention",
+      "granularity": "monthly",
+      "values": [
+        {
+          "period": "2024-01",
+          "value": 100.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-02",
+          "value": 101.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-03",
+          "value": 99.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-04",
+          "value": 100.0,
+          "interpolated": false
+        }
+      ],
+      "confidence": 1.0
+    },
+    {
+      "metric_id": "gross_margin",
+      "granularity": "monthly",
+      "values": [
+        {
+          "period": "2024-01",
+          "value": 75.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-02",
+          "value": 74.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-03",
+          "value": 76.0,
+          "interpolated": false
+        },
+        {
+          "period": "2024-04",
+          "value": 75.0,
+          "interpolated": false
+        }
+      ],
+      "confidence": 1.0
+    }
+  ],
+  "raw_text_context": null
+}

@@ -1,0 +1,30 @@
+# Internal planning artifacts — contract, master plan, per-phase build plans.
+# Not part of the deliverable; docs/C2_REFERENCE.md and CLAUDE.md supersede these.
+tasks/
+
+# Python / backend
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+feedback.jsonl
+.pytest_cache/
+*.egg-info/
+
+# Frontend (web/ has its own .gitignore too; duplicated here for visibility
+# at the root — both apply, neither conflicts)
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/.env.local
+web/.env*.local
+web/*.tsbuildinfo
+web/next-env.d.ts
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

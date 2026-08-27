@@ -1,0 +1,87 @@
+{
+  "job_id": "f72cd1a5-8647-4b67-8458-b1bef7eee584",
+  "status": "complete",
+  "result": {
+    "$schema": "enriched_report_v1",
+    "anomaly_report": {
+      "$schema": "anomaly_report_v1",
+      "company_id": "company_healthy_001",
+      "sector_id": "TECH_SAAS",
+      "analysis_timestamp": "2024-12-31T12:00:00",
+      "reporting_period": {
+        "type": "monthly",
+        "start": "2024-01-01",
+        "end": "2024-12-31"
+      },
+      "company_profile_summary": {
+        "revenue_band": "1M-10M",
+        "employee_count": 45,
+        "region": "US"
+      },
+      "overall_health_score": 78.0,
+      "anomalies": [],
+      "non_anomalous_highlights": [
+        {
+          "metric_id": "churn_rate",
+          "status": "healthy",
+          "percentile": 54.0,
+          "note": "Churn is tracking in line with the expected baseline for a company of this profile."
+        },
+        {
+          "metric_id": "net_revenue_retention",
+          "status": "healthy",
+          "percentile": 58.0,
+          "note": "Net revenue retention is comfortably within the expected range."
+        },
+        {
+          "metric_id": "ltv_cac_ratio",
+          "status": "healthy",
+          "percentile": 71.0,
+          "note": "LTV:CAC ratio (computed) is above the healthy 3:1 benchmark for this profile."
+        }
+      ],
+      "refusal": null,
+      "metadata": {
+        "model_version": "0.1.0-mock",
+        "synthetic_profile_version": "tech_saas_v1",
+        "metrics_analyzed": 5,
+        "metrics_with_anomalies": 0,
+        "metrics_with_missing_data": 0,
+        "skipped_metrics": [],
+        "processing_time_ms": 175
+      }
+    },
+    "prescriptions": [],
+    "anomaly_clusters": [],
+    "matched_cases": [],
+    "narrative": {
+      "situation_summary": "Mock narrative: the submitted metrics show a coordinated deterioration consistent with the flagged anomalies.",
+      "likely_root_causes": [
+        "No anomalies detected; company is tracking near its expected baseline."
+      ],
+      "prioritized_actions": [],
+      "positives": [
+        "Churn is tracking in line with the expected baseline for a company of this profile.",
+        "Net revenue retention is comfortably within the expected range.",
+        "LTV:CAC ratio (computed) is above the healthy 3:1 benchmark for this profile."
+      ]
+    },
+    "metadata": {
+      "llm_model": "mock-llm-v1",
+      "llm_tokens_used": 512,
+      "processing_time_ms": 0,
+      "cases_searched": 0,
+      "cases_matched": 0,
+      "unmatched_anomaly_ids": [],
+      "degraded": false,
+      "degraded_reason": null
+    }
+  },
+  "warnings": [],
+  "error": null,
+  "timings": {
+    "c1_ms": 200,
+    "c3_ms": 1500,
+    "total_ms": 1700
+  }
+}
