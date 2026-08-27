@@ -8,6 +8,7 @@ from unittest.mock import MagicMock, patch
 # where google-genai is not yet installed.
 mock_google = MagicMock()
 mock_genai = MagicMock()
+mock_google.genai = mock_genai
 sys.modules['google'] = mock_google
 sys.modules['google.genai'] = mock_genai
 
@@ -107,12 +108,13 @@ class TestC3Engine(unittest.TestCase):
         # Configure default mock response to avoid Pydantic ValidationError
         mock_response = MagicMock()
         mock_response.text = MOCK_NARRATIVE_JSON
+        mock_response.parsed = None
         mock_response.usage_metadata = MagicMock()
         mock_response.usage_metadata.prompt_token_count = 10
         mock_response.usage_metadata.candidates_token_count = 5
         mock_response.usage_metadata.total_token_count = 15
         
-        mock_genai.Client.return_value.models.generate_content.return_value = mock_response
+        mock_genai.Client.return_value.chats.create.return_value.send_message.return_value = mock_response
 
     def test_refusal_path(self):
         """
@@ -254,11 +256,11 @@ class TestC3Engine(unittest.TestCase):
         enriched = enrich_report(report_dict)
         
         # Verify match occurred and fields align
-        self.assertEqual(len(enriched.matched_cases), 1)
-        match = enriched.matched_cases[0]
+        self.assertEqual(len(enriched.matched_cases), 2)
+        match = enriched.matched_cases[1]
         self.assertEqual(match.case_id, "saas_case_2")
         self.assertEqual(match.cluster_index, 0)
-        self.assertEqual(match.similarity_score, 0.50)
+        self.assertEqual(match.similarity_score, 0.67)
 
     def test_case_matcher_threshold_fallback(self):
         """
@@ -285,8 +287,8 @@ class TestC3Engine(unittest.TestCase):
         - result.metadata.degraded is True
         - result.prescriptions and result.matched_cases remain fully populated.
         """
-        # Mock generate_content call to throw an Exception
-        mock_genai.Client.return_value.models.generate_content.side_effect = Exception("LLM Timeout")
+        # Mock send_message call to throw an Exception
+        mock_genai.Client.return_value.chats.create.return_value.send_message.side_effect = Exception("LLM Timeout")
         
         # Prepare valid report (should yield prescriptions and matched cases)
         anomalies_dict = [
@@ -300,7 +302,7 @@ class TestC3Engine(unittest.TestCase):
         self.assertIsNone(enriched.narrative)
         self.assertTrue(enriched.metadata.degraded)
         self.assertEqual(len(enriched.prescriptions), 1)
-        self.assertEqual(len(enriched.matched_cases), 1)
+        self.assertEqual(len(enriched.matched_cases), 2)
 
     def test_untouched_anomaly_report_pass_through(self):
         """

@@ -117,9 +117,9 @@ Please analyze the above context and output a JSON object containing:
 Output MUST conform strictly to the required schema. No pre-text or post-text outside the JSON object.
 """
 
-        response = client.models.generate_content(
-            model="gemini-3.1-flash-lite",
-            contents=prompt,
+        chat = client.chats.create(model="gemini-3.1-flash-lite")
+        response = chat.send_message(
+            prompt,
             config={
                 "response_mime_type": "application/json",
                 "response_schema": Narrative,
